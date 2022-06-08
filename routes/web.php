@@ -19,6 +19,6 @@ Route::get('/signup',[UserController::class,'signuppage'])->name('signup');
 Route::post('/signin/post',[UserController::class,'signin'])->name('signin.post');
 Route::post('/signup/post',[UserController::class,'signup'])->name('signup.post');
 
-Route::get('/createorder/${placeid}',[PlaceController::class,'createorderpage'])->name('createorder');
+Route::get('/createorder/${placeid}',[OrderController::class,'createorderpage'])->name('createorder');
 Route::post('/createorder/post',[OrderController::class,'createorder'])->name('createorder.post');
 
