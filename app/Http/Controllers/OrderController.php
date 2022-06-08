@@ -26,4 +26,10 @@ class OrderController extends Controller
         }
         return redirect()->route('signin');
     }
+
+    public function createorderpage($placeid)
+    {
+        $place = Place::where('id',$placeid)->first();
+        return view('landing', compact('place'));
+    }
 }

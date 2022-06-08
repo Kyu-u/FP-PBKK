@@ -9,6 +9,16 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 class UserController extends Controller
 {
+    public function signuppage()
+    {
+        return view('signup');
+    }
+
+    public function signinpage()
+    {
+        return view('signin');
+    }
+
     public function signup(Request $request)
     {
         $request->validate([

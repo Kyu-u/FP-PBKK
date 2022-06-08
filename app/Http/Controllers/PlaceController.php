@@ -47,9 +47,5 @@ class PlaceController extends Controller
         return view('landing', compact('places'));
     }
 
-    public function bookingpage($placeid)
-    {
-        $place = Place::where('id',$id)->first();
-        return view('landing', compact('place'));
-    }
+
 }
