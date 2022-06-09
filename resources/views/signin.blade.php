@@ -24,7 +24,7 @@
            <h2 class="font-bold text-4xl pl-64 pb-6">Sign In</h2>
            <div class="flex text-2xl pl-16">
                <div>
-                   <form method="POST" action="{{route('signup.post')}}">
+                   <form method="POST" action="{{route('signin.post')}}">
                         @csrf
                         <div class="flex">
                             <p class="pr-14">Email : </p>
