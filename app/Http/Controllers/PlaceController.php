@@ -17,9 +17,12 @@ class PlaceController extends Controller
                 'location' => 'required',
                 'price' => 'required',
             ]);
+            // dd($request);
+
             if ($request->hasFile('file')) {
+
                 $request->validate([
-                    'image' => 'mimes:jpeg,bmp,png' // Only allow .jpg, .bmp and .png file types.
+                    'file' => 'mimes:jpeg,bmp,png' // Only allow .jpg, .bmp and .png file types.
                 ]);
     
                 // Save the file locally in the storage/public/ folder under a new folder named /product
@@ -32,9 +35,9 @@ class PlaceController extends Controller
                     "price" => $request->get('price'),
                     "location" => $request->get('location'),
                 ]);
+
                 $place->save(); // Finally, save the record.
             }
-    
             return redirect()->route('landing');
         }
         return redirect()->route('signin');
@@ -43,7 +46,8 @@ class PlaceController extends Controller
 
     public function landingpage()
     {
-        $places = Place::all()->toArray();
+        $places = Place::all();
+
         return view('landing', compact('places'));
     }
 

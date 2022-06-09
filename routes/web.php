@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PlaceController;
+use App\Http\Controllers\FileController;
+
 
 
 
@@ -22,4 +24,4 @@ Route::post('/signup/post',[UserController::class,'signup'])->name('signup.post'
 Route::get('/createorder/${placeid}',[OrderController::class,'createorderpage'])->name('createorder');
 Route::post('/createorder/post',[OrderController::class,'createorder'])->name('createorder.post');
 
-Route::get('product/{filename}', [FileController::class,'publicImage'])->name('images.displayImage');
+Route::get('images/{filename}', [FileController::class,'publicImage'])->name('images.displayImage');

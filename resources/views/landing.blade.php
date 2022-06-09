@@ -44,8 +44,8 @@
                 <div>
                     <a href="">
                         <div class="w-96 h-72 relative">
-                            <img class="absolute mix-blend-overlay" src="{{route('images.displayImage',$product->file)}}" alt="">
-                            <div class="pt-36 text-white">
+                            <img class="absolute mix-blend-overlay" src="{{route('images.displayImage',$place->file)}}" alt="">
+                            <div class="pt-36 text-black">
                                 <p class="text-2xl pl-5">{{$place->name}}</p>
                                 <p class="text-lg pl-6 break-normal">{{$place->location}}</p>
                                 <p class="flex justify-end text-2xl font-bold pr-5">{{$place->price}}</p>
@@ -62,11 +62,11 @@
             <div>
                 <h1 class="text-2xl font-bold">Interested in listing a place?</h1>
                 <div>
-                    <form  method="POST" action="{{route('createplace.post')}}" enctype="multipart/form-data">
+                    <form method="POST" action="{{route('createplace.post')}}" enctype="multipart/form-data">
                         @csrf
                         <div class="flex pt-5">
                             <p class="pr-5 text-2xl">Place Name : </p>
-                            <input class="bg-[#D9D9D9] rounded-lg pl-2 w-[700px] h-11" type="text" id="place" name="place">
+                            <input class="bg-[#D9D9D9] rounded-lg pl-2 w-[700px] h-11" type="text" id="name" name="name">
                         </div>
                         <div class="flex pt-3">
                             <p class="pr-14 text-2xl">Location : </p>
@@ -78,7 +78,7 @@
                         </div>
                         <div class="flex pt-3">
                             <p class="pr-[72px] text-2xl">Picture : </p>
-                            <input class="bg-[#D9D9D9] rounded-lg pl-2 w-[700px] h-11" type="text" id="file" name="file">
+                            <input class="bg-[#D9D9D9] rounded-lg pl-2 w-[700px] h-11" type="file" id="file" name="file">
                         </div>
                         <div class="flex justify-end pt-6">
                             <button class="bg-[#008525] text-white text-2xl w-28 h-11 rounded-lg" type="submit">Submit</button>
