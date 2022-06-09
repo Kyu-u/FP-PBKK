@@ -24,17 +24,18 @@
            <h2 class="font-bold text-4xl pl-64 pb-6">Sign In</h2>
            <div class="flex text-2xl pl-16">
                <div>
-                   <form action="">
+                   <form method="POST" action="{{route('signup.post')}}">
+                        @csrf
                         <div class="flex">
                             <p class="pr-14">Email : </p>
-                            <input class="bg-[#D9D9D9] rounded-lg pl-2 w-80 h-11" type="text" id="fname" name="fname">
+                            <input class="bg-[#D9D9D9] rounded-lg pl-2 w-80 h-11" type="text" id="email" name="email">
                         </div>
                         <div class="flex pt-3">
                             <p class="pr-3">Password : </p>
-                            <input class="bg-[#D9D9D9] rounded-lg pl-2 w-80 h-11" type="password" id="fpassword" name="fname">
+                            <input class="bg-[#D9D9D9] rounded-lg pl-2 w-80 h-11" type="password" id="password" name="password">
                         </div>
                         <div class="flex justify-end pt-6">
-                            <input class="bg-[#008525] text-white w-28 h-11 rounded-lg" type="submit" value="Submit">
+                            <button class="bg-[#008525] text-white w-28 h-11 rounded-lg" type="submit">Submit</button>
                         </div>
                    </form>
                </div>

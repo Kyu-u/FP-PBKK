@@ -40,42 +40,20 @@
                 <p class="text-2xl font-bold">Recommended</p>
             </div>
             <div class="pl-12 pt-3 flex justify-between">
+                @foreach($places as $place)
                 <div>
                     <a href="">
                         <div class="w-96 h-72 relative">
-                            <img class="absolute mix-blend-overlay" src="pictures/tempat3.png" alt="">
+                            <img class="absolute mix-blend-overlay" src="{{route('images.displayImage',$product->file)}}" alt="">
                             <div class="pt-36 text-white">
-                                <p class="text-2xl pl-5">Jimbaran Venue A</p>
-                                <p class="text-lg pl-6">Jalan Bali Raya No.19, <br> Denpansar, Bali <br> Indonesia</p>
-                                <p class="flex justify-end text-2xl font-bold pr-5">Rp.499,999,-</p>
+                                <p class="text-2xl pl-5">{{$place->name}}</p>
+                                <p class="text-lg pl-6 break-normal">{{$place->location}}</p>
+                                <p class="flex justify-end text-2xl font-bold pr-5">{{$place->price}}</p>
                             </div>
                         </div>
                     </a>
                 </div>
-                <div>
-                    <a href="">
-                        <div class="w-96 h-72 relative">
-                            <img class="absolute mix-blend-overlay" src="pictures/tempat3.png" alt="">
-                            <div class="pt-36 text-white">
-                                <p class="text-2xl pl-5">Jimbaran Venue A</p>
-                                <p class="text-lg pl-6">Jalan Bali Raya No.19, <br> Denpansar, Bali <br> Indonesia</p>
-                                <p class="flex justify-end text-2xl font-bold pr-5">Rp.499,999,-</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div>
-                    <a href="">
-                        <div class="w-96 h-72 relative">
-                            <img class="absolute mix-blend-overlay" src="pictures/tempat3.png" alt="">
-                            <div class="pt-36 text-white">
-                                <p class="text-2xl pl-5">Jimbaran Venue A</p>
-                                <p class="text-lg pl-6">Jalan Bali Raya No.19, <br> Denpansar, Bali <br> Indonesia</p>
-                                <p class="flex justify-end text-2xl font-bold pr-5">Rp.499,999,-</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
+                @endforeach
             </div>
         </div>
         <!-- Form n Contact Us -->
@@ -84,25 +62,26 @@
             <div>
                 <h1 class="text-2xl font-bold">Interested in listing a place?</h1>
                 <div>
-                    <form action="">
+                    <form  method="POST" action="{{route('createplace.post')}}" enctype="multipart/form-data">
+                        @csrf
                         <div class="flex pt-5">
                             <p class="pr-5 text-2xl">Place Name : </p>
-                            <input class="bg-[#D9D9D9] rounded-lg pl-2 w-[700px] h-11" type="text" id="fplace" name="fplace">
+                            <input class="bg-[#D9D9D9] rounded-lg pl-2 w-[700px] h-11" type="text" id="place" name="place">
                         </div>
                         <div class="flex pt-3">
                             <p class="pr-14 text-2xl">Location : </p>
-                            <input class="bg-[#D9D9D9] rounded-lg pl-2 w-[700px] h-11" type="text" id="flocation" name="flocation">
+                            <input class="bg-[#D9D9D9] rounded-lg pl-2 w-[700px] h-11" type="text" id="location" name="location">
                         </div>
                         <div class="flex pt-3">
                             <p class="pr-24 text-2xl">Price : </p>
-                            <input class="bg-[#D9D9D9] rounded-lg pl-2 w-[700px] h-11" type="text" id="fprice" name="fprice">
+                            <input class="bg-[#D9D9D9] rounded-lg pl-2 w-[700px] h-11" type="text" id="price" name="price">
                         </div>
                         <div class="flex pt-3">
                             <p class="pr-[72px] text-2xl">Picture : </p>
-                            <input class="bg-[#D9D9D9] rounded-lg pl-2 w-[700px] h-11" type="text" id="fpicture" name="fpicture">
+                            <input class="bg-[#D9D9D9] rounded-lg pl-2 w-[700px] h-11" type="text" id="file" name="file">
                         </div>
                         <div class="flex justify-end pt-6">
-                            <input class="bg-[#008525] text-white text-2xl w-28 h-11 rounded-lg" type="submit" value="Submit">
+                            <button class="bg-[#008525] text-white text-2xl w-28 h-11 rounded-lg" type="submit">Submit</button>
                         </div>
                     </form>
                 </div>
